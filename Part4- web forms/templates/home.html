@@ -1,0 +1,18 @@
+<!-- inherting form the layout page-->
+
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<h2>
+    Padharo Bhaiynu !!!
+</h2>
+
+<p>
+Getting started ? <a href="{{ url_for('sign') }}">Sign Up</a>
+</p>
+
+<p>Already Registered !  <a href = " {{ url_for('log') }}">Login </a></p>
+
+{% endblock %}

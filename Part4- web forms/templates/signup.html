@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="" method="post">          <!--as we want to send data ,so post-->
+
+        {{fo.hidden_tag() }}        <!--csrf token as we have to share it-->
+
+        <br>
+        <div>
+            {{ fo.username.label }}         <!--label name comes here-->
+            {{fo.username }}                <!--attributes/variables-->
+            {% if fo.username.errors %} 
+                {% for error in fo.username.errors %}    <!--error message drops from the inbuilt validator and email() libraries-->  
+                    <div>
+                        {{error }}
+                    </div>
+                {% endfor %} 
+
+            {% endif %}
+        </div>  
+        <br>
+
+        <div>
+            {{fo.email.label }}
+            {{fo.email }}
+            {% if fo.email.errors %} 
+                {% for error in fo.email.errors %} 
+                    <div>
+                        {{error }}
+                    </div>
+                {% endfor %} 
+
+            {% endif %}
+        </div>
+        <br>
+
+        <div>
+            {{fo.gender.label }}
+            {{fo.gender }}
+            {% if fo.gender.errors %} 
+                {% for error in fo.gender.errors %} 
+                    <div>
+                        {{error }}
+                    </div>
+                {% endfor %} 
+
+            {% endif %}
+        </div>
+        <br>
+
+        <div>
+            {{fo.dob.label }}
+            {{fo.dob }}
+        </div>
+        <br>
+
+        <div>
+            {{fo.password.label }}
+            {{fo.password }}
+            {% if fo.password.errors %} 
+                {% for error in fo.password.errors %} 
+                    <div>
+                        {{error }}
+                    </div>
+                {% endfor %} 
+
+            {% endif %}
+        </div>
+        <br>
+
+        <div>
+            {{fo.confirm_password.label }}
+            {{fo.confirm_password }}
+            {% if fo.confirm_password.errors %} 
+                {% for error in fo.confirm_password.errors %} 
+                    <div>
+                        {{error }}
+                    </div>
+                {% endfor %} 
+
+            {% endif %}
+        </div>
+        <br>
+
+        
+        <div>
+            {{ fo.submit() }}
+            <p>Already Registered ! <a href = " {{ url_for('log') }}">Login </a></p>
+            <p>Redirect to Home ! <a href = " {{ url_for('h') }}">Home</a></p>
+
+        </div>
+
+</form>
+
+{% endblock %}
+

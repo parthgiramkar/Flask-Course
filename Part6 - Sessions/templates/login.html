@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action=""method="post">
+
+    {{fo.hidden_tag() }}
+
+    <div>
+        {{ fo.username.label }}              <!--the label inside it is passedinthe string format-->
+        {{ fo.username }}  
+
+        {% if fo.username.errors %}
+
+            {% for er in fo.username.errors %}
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+
+    <div>
+        {{ fo.password.label }}
+        {{ fo.password }}
+        
+        {% if fo.password.errors %} 
+
+            {% for er in fo.password.errors %} 
+                <div>
+                    {{ er }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <br>
+
+
+    <div>
+        {{ fo.submit.label }}
+        {{ fo.submit }}
+
+        <p>Redirect to Home Page!  <a href = " {{ url_for('homi') }}">Home</a></p>
+    </div>
+    <br>
+
+</form>
+
+{% endblock %}
+
+
